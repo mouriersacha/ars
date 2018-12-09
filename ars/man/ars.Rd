@@ -8,7 +8,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-ars(myfun, m)
+ars(myfun, m, lower, upper)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,6 +16,8 @@ ars(myfun, m)
 %%     ~~Describe \code{x} here~~
 }
   \item{m}{sample size}
+  \item{lower}{value of the lower bound}
+  \item{upper}{value of the upper bound}
 }
 \details{The method is adaptive: as sampling proceeds, the rejection envelope and the squeezing function converge to the density function. The rejection envelope and squeezing function are piecewise exponential functions forming arcs between those points of contact. The technique is intended for situations where evaluation of the density is computationally expensive.
 %%  ~~ If necessary, more details than the description above ~~
@@ -46,14 +48,10 @@ ars(myfun, m)
 
 library(ars)
 
-#Example 1: sample 500 values from the standard normal distribution
-ars1 <- ars(myfun = dnorm, m = 500)
+#Example: sample 500 values from the standard normal distribution
+ars1 <- ars(myfun = dnorm, m = 500, lower = -6, upper = 6)
 hist(ars1, breaks = 100)
 
-#Example 2: sample 400 values from the t-distribution
-t_dist <- function (x) dt(x, df = 12)
-ars2 <- ars(myfun = t_distr, m = 400)
-hist(ars2)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
