@@ -1,6 +1,7 @@
 ## TESTS
 
 library(testthat)
+library(ars)
 context("tests")
 library(stats)
 
@@ -37,21 +38,21 @@ test_that("generate sample in the right section", {
 
 test_that("unit test for normal distribution", {
   x <- dnorm
-  samples <- myARS(x, 200,-Inf, Inf)
+  samples <- ars(x, 200,-Inf, Inf)
   p <- ks.test(samples, "pnorm")
   expect_gte(p$p.value, 0.05)
 })
 
 test_that("unit test for beta(2,2) distribution", {
   x <- function(x) dbeta(x, 2, 2)
-  samples <- myARS(x, 200, 0.01, 0.99)
+  samples <- ars(x, 200, 0.01, 0.99)
   p <- ks.test(samples, 'pbeta', 2, 2)
   expect_gte(p$p.value, 0.05)
 })
 
 test_that("unit test for gamma(2,2) distribution", {
   x <- function(x) dgamma(x, 2, 2)
-  samples <- myARS(x, 200, 0.01, Inf)
+  samples <- ars(x, 200, 0.01, Inf)
   p <- ks.test(samples, 'pgamma', 2, 2)
   expect_gte(p$p.value, 0.05)
 })
