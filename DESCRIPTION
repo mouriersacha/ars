@@ -1,0 +1,18 @@
+Package: ars
+Type: Package
+Title: Adaptive Rejection Sampling
+Version: 0.1.0
+Author: Cindy Zhang, Sihan Chen, Sacha Mourier
+Description: Method for rejection sampling for any univariate log-concave probability density function.
+  Rejection techniques based on Gilks, W. R, Wild, P. (1992) Adaptive Rejection Sampling for Gibbs Sampling, 
+  Applied Statistics 41:337-348
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Imports:
+  assertthat,
+  testthat,
+  stats,
+  distr,
+  numDeriv
+
