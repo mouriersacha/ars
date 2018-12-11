@@ -140,5 +140,5 @@ sample_one_reject <- function(myfun, breakpoints, z, samples){
     samples=c(candidate,samples)
     return(list(TRUE, samples, candidate))
   }
-  return(list(TRUE,samples,candidate))
+  return(list(FALSE,samples,candidate))
 }
